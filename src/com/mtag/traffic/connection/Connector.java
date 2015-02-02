@@ -1,4 +1,4 @@
-package de.mtag.traffic.connection;
+package com.mtag.traffic.connection;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

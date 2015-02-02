@@ -1,4 +1,4 @@
-package de.mtag.traffic.jsontokens;
+package com.mtag.traffic.tokens;
 
 public class JsonTokens {
 

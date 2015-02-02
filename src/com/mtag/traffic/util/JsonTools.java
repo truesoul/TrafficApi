@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.mtag.traffic.util;
+package com.mtag.traffic.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +33,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import com.mtag.traffic.exception.JsonServiceException;
 
 /**
  *

@@ -1,14 +1,15 @@
-package de.mtag.traffic.util;
+package com.mtag.traffic.util;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import de.mtag.traffic.jsontokens.JsonTokens;
-import de.mtag.traffic.model.TrafficData;
-import de.mtag.traffic.model.TrafficItem;
-import de.mtag.traffic.model.TrafficType;
+import com.mtag.traffic.model.TrafficData;
+import com.mtag.traffic.model.TrafficItem;
+import com.mtag.traffic.model.TrafficType;
+import com.mtag.traffic.tokens.JsonTokens;
+
 
 public class JsonToTrafficUtil {
 

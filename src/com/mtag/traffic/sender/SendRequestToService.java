@@ -1,12 +1,13 @@
-package de.mtag.traffic.sender;
+package com.mtag.traffic.sender;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import de.mtag.traffic.connection.Connector;
-import de.mtag.traffic.model.TrafficData;
-import de.mtag.traffic.util.JsonToTrafficUtil;
+import com.mtag.traffic.connection.Connector;
+import com.mtag.traffic.model.TrafficData;
+import com.mtag.traffic.util.JsonToTrafficUtil;
+
 
 public class SendRequestToService implements Runnable {
 

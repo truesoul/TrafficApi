@@ -1,4 +1,4 @@
-package de.mtag.traffic.model;
+package com.mtag.traffic.model;
 
 import java.io.Serializable;
 
