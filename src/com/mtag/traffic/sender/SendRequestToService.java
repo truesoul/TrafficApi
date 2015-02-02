@@ -27,15 +27,12 @@ public class SendRequestToService implements Runnable {
 				try {
 
 					reader = new BufferedReader(new InputStreamReader(in));
-					String line = null;
-					StringBuilder builder = new StringBuilder();
-					while ((line = reader.readLine()) != null) {
-						builder.append(line);
+					String line = reader.readLine();
+					if (line != null && !line.isEmpty()) {
+						TrafficData dataFromJson = JsonToTrafficUtil
+								.getTrafficDataFromJson(line);
+						listener.result(dataFromJson);
 					}
-					TrafficData dataFromJson = JsonToTrafficUtil
-							.getTrafficDataFromJson(builder.toString());
-
-					listener.result(dataFromJson);
 				} catch (Exception e) {
 					e.printStackTrace();
 					listener.result(null);
