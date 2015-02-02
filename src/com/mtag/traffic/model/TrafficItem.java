@@ -14,14 +14,15 @@ public class TrafficItem implements Serializable {
 	private String state;
 	private TrafficType type;
 	private int delayMinutes;
+        private int maxSpeed;
 
 	public TrafficItem() {
-
+            this("", "", "", 0.0, 0.0, -1, "", TrafficType.NONE, -1, -1);
 	}
 
 	public TrafficItem(String street, String direction, String description,
 			double longitude, double altitude, Integer kilometer, String state,
-			TrafficType type, int delayMinutes) {
+			TrafficType type, int delayMinutes, int maxSpeed) {
 		this.street = street;
 		this.direction = direction;
 		this.description = description;
@@ -31,6 +32,7 @@ public class TrafficItem implements Serializable {
 		this.state = state;
 		this.type = type;
 		this.delayMinutes = delayMinutes;
+                this.maxSpeed=maxSpeed;
 	}
 
 	public TrafficType getType() {
@@ -105,14 +107,17 @@ public class TrafficItem implements Serializable {
 		return delayMinutes;
 	}
 
-	@Override
-	public String toString() {
+        public int getMaxSpeed() {
+            return maxSpeed;
+        }
 
-		return "TrafficItem [street=" + street + ", direction=" + direction
-				+ ", description=" + description + ", longitude=" + longitude
-				+ ", latitude=" + latitude + ", kilometer=" + kilometer
-				+ ", state=" + state + ", type=" + type + ", delayMinutes="
-				+ delayMinutes + "]";
-	}
+        public void setMaxSpeed(int maxSpeed) {
+            this.maxSpeed = maxSpeed;
+        }
+
+    @Override
+    public String toString() {
+        return "TrafficItem{" + "street=" + street + ", direction=" + direction + ", description=" + description + ", longitude=" + longitude + ", latitude=" + latitude + ", kilometer=" + kilometer + ", state=" + state + ", type=" + type + ", delayMinutes=" + delayMinutes + ", maxSpeed=" + maxSpeed + '}';
+    }
 
 }

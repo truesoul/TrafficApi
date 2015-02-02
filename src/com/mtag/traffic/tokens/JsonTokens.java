@@ -14,5 +14,5 @@ public class JsonTokens {
 	public static String DELAYMINUTES = "delayMinutes";
 	public static String COPYRIGHT = "copyright";
 	public static String STATE = "state";
-
+        public static String MAX_SPEED = "maxSpeed";
 }
