@@ -42,8 +42,8 @@ public class JsonToTrafficUtil {
 								JsonTokens.KILOMETER));
 						item.setDelayMinutes(JsonTools.requestInteger(object,
 								JsonTokens.DELAYMINUTES));
-						item.setAltitude(JsonTools.requestDouble(object,
-								JsonTokens.ALTITUDE));
+						item.setLatitude(JsonTools.requestDouble(object,
+								JsonTokens.LATITUDE));
 						item.setLongitude(JsonTools.requestDouble(object,
 								JsonTokens.LONGITUDE));
 						item.setState(JsonTools.requestString(object,

@@ -9,7 +9,7 @@ public class TrafficItem implements Serializable {
 	private String street;
 	private String direction;
 	private String description;
-	private double longitude, altitude;
+	private double longitude, latitude;
 	private Integer kilometer;
 	private String state;
 	private TrafficType type;
@@ -26,7 +26,7 @@ public class TrafficItem implements Serializable {
 		this.direction = direction;
 		this.description = description;
 		this.longitude = longitude;
-		this.altitude = altitude;
+		this.latitude = altitude;
 		this.kilometer = kilometer;
 		this.state = state;
 		this.type = type;
@@ -73,12 +73,12 @@ public class TrafficItem implements Serializable {
 		this.longitude = longitude;
 	}
 
-	public double getAltitude() {
-		return altitude;
+	public double getLatitude() {
+		return latitude;
 	}
 
-	public void setAltitude(double altitude) {
-		this.altitude = altitude;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 	public void setKilometer(Integer kilometer) {
@@ -110,7 +110,7 @@ public class TrafficItem implements Serializable {
 
 		return "TrafficItem [street=" + street + ", direction=" + direction
 				+ ", description=" + description + ", longitude=" + longitude
-				+ ", altitude=" + altitude + ", kilometer=" + kilometer
+				+ ", latitude=" + latitude + ", kilometer=" + kilometer
 				+ ", state=" + state + ", type=" + type + ", delayMinutes="
 				+ delayMinutes + "]";
 	}

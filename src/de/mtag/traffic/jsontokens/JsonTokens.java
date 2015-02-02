@@ -8,7 +8,7 @@ public class JsonTokens {
 	public static String DIRECTION = "direction";
 	public static String DESCRIPTION = "description";
 	public static String LONGITUDE = "longitude";
-	public static String ALTITUDE = "altitude";
+	public static String LATITUDE = "latitude";
 	public static String TYPE = "type";
 	public static String KILOMETER = "kilometer";
 	public static String DELAYMINUTES = "delayMinutes";
