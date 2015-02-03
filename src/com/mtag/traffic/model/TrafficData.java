@@ -4,29 +4,23 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author christian
- */
 public class TrafficData implements Serializable {
 
-	private static final long serialVersionUID = 3202171319169344072L;
+	private static final long serialVersionUID = -2890714029177142785L;
 
-	private long lastUpdated;
+	private long lastUpdated = 0;
 	private final List<TrafficItem> trafficItems;
 	private String copyright;
-	private String errorMessage;
+        private String errorMessage;
 
+        public TrafficData(Exception ex) {
+            this();
+            this.errorMessage = ex.getMessage();
+        }
+        
 	public TrafficData() {
-		lastUpdated = 0;
-		copyright = "";
-		this.trafficItems = new ArrayList<>();
-		errorMessage = "";
-	}
-
-	public TrafficData(Exception ex) {
-		this();
-		errorMessage = ex.getClass().getName() + ": " + ex.getMessage();
+            this.errorMessage="";
+            this.trafficItems = new ArrayList<>();
 	}
 
 	public long getLastUpdated() {
@@ -59,12 +53,13 @@ public class TrafficData implements Serializable {
 
 	@Override
 	public String toString() {
-		String result = "TrafficData{" + "lastUpdated=" + lastUpdated
-				+ ", trafficItems={";
+		StringBuilder result = new StringBuilder();
+		result.append("TrafficData{" + "lastUpdated=" + lastUpdated
+				+ ", trafficItems={");
 		for (TrafficItem item : trafficItems) {
-			result += "\n" + item;
+			result.append("\n" + item);
 		}
-		return result + "}}";
+		return result.append("}}").toString();
 	}
 
 }

@@ -8,6 +8,7 @@ import com.mtag.traffic.connection.Connector;
 import com.mtag.traffic.model.TrafficData;
 import com.mtag.traffic.util.JsonToTrafficUtil;
 
+
 public class SendRequestToService implements Runnable {
 
 	private ResponseListener listener;
@@ -19,30 +20,32 @@ public class SendRequestToService implements Runnable {
 
 	@Override
 	public void run() {
-		if (listener != null) {
-			Connector connector = new Connector();
-			InputStream in = connector.getInputStream(text);
-			if (in != null) {
-				BufferedReader reader = null;
-				try {
+		Connector connector = new Connector();
+		InputStream in = connector.getInputStream(text);
+		if (in != null) {
+			BufferedReader reader = null;
+			try {
 
-					reader = new BufferedReader(new InputStreamReader(in));
-					String line = reader.readLine();
-					if (line != null && !line.isEmpty()) {
-						TrafficData dataFromJson = JsonToTrafficUtil
-								.getTrafficDataFromJson(line);
-						listener.result(dataFromJson);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
+				reader = new BufferedReader(new InputStreamReader(in));
+				String line = null;
+				StringBuilder builder = new StringBuilder();
+				while ((line = reader.readLine()) != null) {
+					builder.append(line);
+				}
+				TrafficData dataFromJson = JsonToTrafficUtil
+						.getTrafficDataFromJson(builder.toString());
+				if (listener != null)
+					listener.result(dataFromJson);
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (listener != null)
 					listener.result(null);
-				} finally {
-					if (reader != null) {
-						try {
-							reader.close();
-						} catch (Exception e2) {
-							e2.printStackTrace();
-						}
+			} finally {
+				if (reader != null) {
+					try {
+						reader.close();
+					} catch (Exception e2) {
+						e2.printStackTrace();
 					}
 				}
 			}

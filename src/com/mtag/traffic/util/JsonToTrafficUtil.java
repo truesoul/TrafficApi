@@ -10,6 +10,7 @@ import com.mtag.traffic.model.TrafficItem;
 import com.mtag.traffic.model.TrafficType;
 import com.mtag.traffic.tokens.JsonTokens;
 
+
 public class JsonToTrafficUtil {
 
 	public static TrafficData getTrafficDataFromJson(String text) {
@@ -48,9 +49,6 @@ public class JsonToTrafficUtil {
 								JsonTokens.LONGITUDE));
 						item.setState(JsonTools.requestString(object,
 								JsonTokens.STATE));
-						item.setMaxSpeed(JsonTools.requestInteger(object,
-								JsonTokens.MAX_SPEED));
-
 						data.addTrafficItem(item);
 					}
 				} else {
