@@ -11,9 +11,16 @@ public class TrafficData implements Serializable {
 	private long lastUpdated = 0;
 	private final List<TrafficItem> trafficItems;
 	private String copyright;
+        private String errorMessage;
 
+        public TrafficData(Exception ex) {
+            this();
+            this.errorMessage = ex.getMessage();
+        }
+        
 	public TrafficData() {
-		this.trafficItems = new ArrayList<>();
+            this.errorMessage="";
+            this.trafficItems = new ArrayList<>();
 	}
 
 	public long getLastUpdated() {
