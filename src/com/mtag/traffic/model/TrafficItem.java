@@ -2,7 +2,7 @@ package com.mtag.traffic.model;
 
 import java.io.Serializable;
 
-public class TrafficItem implements Serializable {
+public class TrafficItem implements Serializable, Comparable {
 
 	private static final long serialVersionUID = 365503745315195851L;
 
@@ -114,6 +114,15 @@ public class TrafficItem implements Serializable {
         public void setMaxSpeed(int maxSpeed) {
             this.maxSpeed = maxSpeed;
         }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o==null || !(o instanceof TrafficItem))
+        {
+            return 1;
+        }
+        return this.getStreet().compareToIgnoreCase(((TrafficItem)o).getStreet());
+    }
 
     @Override
     public String toString() {
