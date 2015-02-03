@@ -58,7 +58,7 @@ public class TrafficItem implements Serializable, Comparable {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
+        
 	public String getDescription() {
 		return description;
 	}
@@ -120,7 +120,7 @@ public class TrafficItem implements Serializable, Comparable {
         if (o==null || !(o instanceof TrafficItem))
         {
             return 1;
-        }
+        }        
         return this.getStreet().compareToIgnoreCase(((TrafficItem)o).getStreet());
     }
 

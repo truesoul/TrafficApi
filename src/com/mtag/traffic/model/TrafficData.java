@@ -2,16 +2,15 @@ package com.mtag.traffic.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class TrafficData implements Serializable {
 
     private static final long serialVersionUID = -2890714029177142785L;
 
     private long lastUpdated = 0;
-    private final Queue<TrafficItem> trafficItems;
+    private final List<TrafficItem> trafficItems;
     private String copyright;
     private String errorMessage;
 
@@ -22,7 +21,7 @@ public class TrafficData implements Serializable {
 
     public TrafficData() {
         this.errorMessage = "";
-        this.trafficItems = new PriorityQueue<>();
+        this.trafficItems = new ArrayList<>();
     }
 
     public long getLastUpdated() {
@@ -34,7 +33,8 @@ public class TrafficData implements Serializable {
     }
 
     public List<TrafficItem> getTrafficItems() {
-        return new ArrayList<>(this.trafficItems);
+        Collections.sort(this.trafficItems);
+        return this.trafficItems;
     }
 
     public void addTrafficItem(TrafficItem trafficItem) {
