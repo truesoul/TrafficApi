@@ -7,32 +7,35 @@ public class TrafficItem implements Serializable, Comparable {
 	private static final long serialVersionUID = 365503745315195851L;
 
 	private String street;
-	private String direction;
+	private String directionTo;
+	private String directionFrom;
 	private String description;
 	private double longitude, latitude;
 	private Integer kilometer;
 	private String state;
 	private TrafficType type;
 	private int delayMinutes;
-        private int maxSpeed;
+	private int maxSpeed;
 
 	public TrafficItem() {
-            this("", "", "", 0.0, 0.0, -1, "", TrafficType.NONE, -1, -1);
+		this("", "", "", "", 0.0, 0.0, -1, "", TrafficType.NONE, -1, -1);
 	}
 
-	public TrafficItem(String street, String direction, String description,
-			double longitude, double altitude, Integer kilometer, String state,
-			TrafficType type, int delayMinutes, int maxSpeed) {
+	public TrafficItem(String street, String directionTo, String directionFrom,
+			String description, double longitude, double altitude,
+			Integer kilometer, String state, TrafficType type,
+			int delayMinutes, int maxSpeed) {
 		this.street = street;
-		this.direction = direction;
+		this.directionTo = directionTo;
 		this.description = description;
+		this.directionFrom = directionFrom;
 		this.longitude = longitude;
 		this.latitude = altitude;
 		this.kilometer = kilometer;
 		this.state = state;
 		this.type = type;
 		this.delayMinutes = delayMinutes;
-                this.maxSpeed=maxSpeed;
+		this.maxSpeed = maxSpeed;
 	}
 
 	public TrafficType getType() {
@@ -43,12 +46,20 @@ public class TrafficItem implements Serializable, Comparable {
 		this.type = type;
 	}
 
-	public String getDirection() {
-		return direction;
+	public String getDirectionTo() {
+		return directionTo;
 	}
 
-	public void setDirection(String direction) {
-		this.direction = direction;
+	public void setDirectionTo(String directionTo) {
+		this.directionTo = directionTo;
+	}
+
+	public String getDirectionFrom() {
+		return directionFrom;
+	}
+
+	public void setDirectionFrom(String directionFrom) {
+		this.directionFrom = directionFrom;
 	}
 
 	public String getStreet() {
@@ -58,7 +69,7 @@ public class TrafficItem implements Serializable, Comparable {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-        
+
 	public String getDescription() {
 		return description;
 	}
@@ -107,26 +118,31 @@ public class TrafficItem implements Serializable, Comparable {
 		return delayMinutes;
 	}
 
-        public int getMaxSpeed() {
-            return maxSpeed;
-        }
+	public int getMaxSpeed() {
+		return maxSpeed;
+	}
 
-        public void setMaxSpeed(int maxSpeed) {
-            this.maxSpeed = maxSpeed;
-        }
+	public void setMaxSpeed(int maxSpeed) {
+		this.maxSpeed = maxSpeed;
+	}
 
-    @Override
-    public int compareTo(Object o) {
-        if (o==null || !(o instanceof TrafficItem))
-        {
-            return 1;
-        }        
-        return this.getStreet().compareToIgnoreCase(((TrafficItem)o).getStreet());
-    }
+	@Override
+	public int compareTo(Object o) {
+		if (o == null || !(o instanceof TrafficItem)) {
+			return 1;
+		}
+		return this.getStreet().compareToIgnoreCase(
+				((TrafficItem) o).getStreet());
+	}
 
-    @Override
-    public String toString() {
-        return "TrafficItem{" + "street=" + street + ", direction=" + direction + ", description=" + description + ", longitude=" + longitude + ", latitude=" + latitude + ", kilometer=" + kilometer + ", state=" + state + ", type=" + type + ", delayMinutes=" + delayMinutes + ", maxSpeed=" + maxSpeed + '}';
-    }
+	@Override
+	public String toString() {
+		return "TrafficItem{" + "street=" + street + ", directionTo="
+				+ directionTo + ", directionFrom=" + directionFrom
+				+ ", description=" + description + ", longitude=" + longitude
+				+ ", latitude=" + latitude + ", kilometer=" + kilometer
+				+ ", state=" + state + ", type=" + type + ", delayMinutes="
+				+ delayMinutes + ", maxSpeed=" + maxSpeed + '}';
+	}
 
 }

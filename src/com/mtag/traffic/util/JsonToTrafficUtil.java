@@ -10,7 +10,6 @@ import com.mtag.traffic.model.TrafficItem;
 import com.mtag.traffic.model.TrafficType;
 import com.mtag.traffic.tokens.JsonTokens;
 
-
 public class JsonToTrafficUtil {
 
 	public static TrafficData getTrafficDataFromJson(String text) {
@@ -33,8 +32,10 @@ public class JsonToTrafficUtil {
 
 						item.setStreet(JsonTools.requestString(object,
 								JsonTokens.STREET));
-						item.setDirection(JsonTools.requestString(object,
-								JsonTokens.DIRECTION));
+						item.setDirectionTo(JsonTools.requestString(object,
+								JsonTokens.DIRECTION_TO));
+						item.setDirectionFrom(JsonTools.requestString(object,
+								JsonTokens.DIRECTION_FROM));
 						item.setDescription(JsonTools.requestString(object,
 								JsonTokens.DESCRIPTION));
 						item.setType(TrafficType.valueOf(JsonTools
